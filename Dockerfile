@@ -1,5 +1,5 @@
 # build stage
-FROM python:3.9-bullseye as build
+FROM python:3.9.7-bullseye as build
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 
 # production stage
-FROM python:3.9-slim-bullseye as production
+FROM python:3.9.7-slim-bullseye as production
 
 COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
 # RUN apt-get update && apt-get install -y git && \
